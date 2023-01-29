@@ -28,6 +28,15 @@ const addQuote = (req, res) => {
     if (results.rows.length) {
       res.send('quote is already in Database')
     }
+    // add quote to db
+    pool.query(
+      queries.addQuote,
+      [quote, name, season, episode],
+      (error, results) => {
+        if (error) throw error
+        res.status(201).send('sucsessfully added quote')
+      }
+    )
   })
 }
 module.exports = {
