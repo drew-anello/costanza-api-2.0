@@ -4,5 +4,5 @@ const controller = require('./controller')
 const router = Router()
 
 router.get('/', controller.getQuotes)
-
+router.get('/:id', controller.getQuoteById)
 module.exports = router
