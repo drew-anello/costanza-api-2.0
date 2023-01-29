@@ -10,11 +10,19 @@ const getQuotes = (req, res) => {
 const getQuoteById = (req, res) => {
   const id = parseInt(req.params.id)
   pool.query(queries.getQuotesById, [id], (error, results) => {
-    if (error) throw error
+    if (error) throw 'unable to find id'
+    res.status(200).json(results.rows)
+  })
+}
+const getQuotesByName = (req, res) => {
+  const name = req.params.name
+  pool.query(queries.getQuotesByName, [name], (error, results) => {
+    if (error) throw 'unable to pass name'
     res.status(200).json(results.rows)
   })
 }
 module.exports = {
   getQuotes,
-  getQuoteById
+  // getQuoteById,
+  getQuotesByName
 }
