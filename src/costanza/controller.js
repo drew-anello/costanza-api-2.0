@@ -21,8 +21,18 @@ const getQuotesByName = (req, res) => {
     res.status(200).json(results.rows)
   })
 }
+const addQuote = (req, res) => {
+  const { quote, name, season, episode } = req.body
+  // check if quote exsis
+  pool.query(queries.checkQuoteExist, [quote], (error, results) => {
+    if (results.rows.length) {
+      res.send('quote is already in Database')
+    }
+  })
+}
 module.exports = {
   getQuotes,
   // getQuoteById,
-  getQuotesByName
+  getQuotesByName,
+  addQuote
 }
