@@ -5,11 +5,11 @@ const dbUser = process.env.DB_USER
 const dbHost = process.env.DB_HOST
 const db = process.env.DB
 const dbPW = process.env.DB_PW
-const pool = new pool({
+const pool = new Pool({
   user: dbUser,
   host: dbHost,
   database: db,
   password: dbPW,
-  port: dbPort
+  port: 5432
 })
 module.exports = pool
