@@ -1,3 +1,6 @@
 const express = require('express')
+const app = express()
+require('dotenv').config()
+const PORT = process.env.PORT
 
-app.listen(4000)
+app.listen(PORT, () => console.log('I was in the Pool! I was in the Pool!'))
