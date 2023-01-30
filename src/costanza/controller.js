@@ -1,3 +1,4 @@
+const { response } = require('express')
 const pool = require('../../db')
 const queries = require('./queries')
 
@@ -39,9 +40,21 @@ const addQuote = (req, res) => {
     )
   })
 }
+const deleteQuote = (req, res) => {
+  const id = parseInt(req.params.id)
+
+  pool.query(queries.deleteQuote, [id], (error, results) => {
+    const noQuoteFound = !results.rows.length
+    if (noQuoteFound) {
+      res.send('quote does not exist in DB')
+    }
+  })
+}
+
 module.exports = {
   getQuotes,
   // getQuoteById,
   getQuotesByName,
-  addQuote
+  addQuote,
+  deleteQuote
 }
