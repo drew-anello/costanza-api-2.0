@@ -48,6 +48,10 @@ const deleteQuote = (req, res) => {
     if (noQuoteFound) {
       res.send('quote does not exist in DB')
     }
+    pool.query(queries.deleteQuote, [id], (error, results) => {
+      if (error) throw error
+      res.status(200).send('quote sucsessfully removed')
+    })
   })
 }
 
