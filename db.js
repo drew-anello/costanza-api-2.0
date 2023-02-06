@@ -10,6 +10,6 @@ const pool = new Pool({
   host: dbHost,
   database: db,
   password: dbPW,
-  port: 5432
+  port: dbPort
 })
 module.exports = pool
