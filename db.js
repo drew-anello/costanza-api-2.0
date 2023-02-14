@@ -13,15 +13,15 @@ const PGPORT = process.env.PGPORT
 const PGUSER = process.env.PGUSER
 
 const pool = new Pool({
-  // user: PGUSER,
-  // host: PGHOST,
-  // database: DATABSE_URL,
-  // password: PGPASSWORD,
-  // port: PGPORT
-  user: dbUser,
-  host: dbHost,
-  database: db,
-  password: dbPW,
-  port: dbPort
+  user: PGUSER,
+  host: PGHOST,
+  database: DATABSE_URL,
+  password: PGPASSWORD,
+  port: PGPORT
+  // user: dbUser,
+  // host: dbHost,
+  // database: db,
+  // password: dbPW,
+  // port: dbPort
 })
 module.exports = pool
