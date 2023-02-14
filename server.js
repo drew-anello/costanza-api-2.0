@@ -4,7 +4,7 @@ const app = express()
 
 const costanzaRoutes = require('./src/costanza/routes')
 require('dotenv').config()
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 4000
 
 app.use(cors())
 app.use(express.json())
