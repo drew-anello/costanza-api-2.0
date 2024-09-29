@@ -24,6 +24,7 @@ This will return all the quotes from George and Frank Costanza in JSON format:
   "episode": 4
 }
 ```
+
 #### The quote schema includes the following properties:
 
 <li>id: the unique identifier of the quote</li>
